@@ -4,9 +4,14 @@ var path=require("path");
 var fs=require("fs");
 http.createServer(function(req,res){
     var url=req.url;
-    if(url=="/favicon.ico") {
-        res.end();
+    if(url=="/favicon.ico"){
+        fs.readFile("."+url,function(err,data){
+            res.setHeader("content-type","application/x-ico");
+            res.end(data);
+        })
+
     }else{
+        console.log(req.url);
         var root=path.resolve(config.root);
         fs.readdir(root,function(err,data){
             if(err){
@@ -15,9 +20,10 @@ http.createServer(function(req,res){
             }else{
 
                 if(path.extname(url)){
-                    var fullUrl=path.join(__dirname,config.root,"."+url);
+                    var fullUrl=path.resolve(config.root,"."+url);
+
                 }else{
-                    var fullUrl=path.join(__dirname,config.root,"."+url+"/"+config.index);
+                    var fullUrl=path.resolve(config.root,"."+url+"/"+config.index);
                 }
 
                 fs.readFile(fullUrl,function(err,data){
@@ -25,7 +31,9 @@ http.createServer(function(req,res){
                         res.writeHead(404,{"content-type":"text/html;charset=utf-8"});
                         res.end("页面不存在");
                     }else{
-                        res.writeHead(200,{"content-type":"text/html;charset=utf-8"});
+
+                        var extname=path.extname(fullUrl);
+                        res.writeHead(200,{"content-type":config.type[extname]+";charset=utf-8"});
                       res.end(data);
                     }
                 })

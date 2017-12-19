@@ -1,4 +1,13 @@
 {
   "index":"index.html",
-  "root":"www"
+  "root":"www",
+   "type":{
+     ".jpg":"image/jpeg",
+     ".png":"image/png",
+     ".gif":"image/gif",
+     ".css":"text/css",
+     ".js":"application/x-javascript",
+     ".html":"text/html",
+     ".mp4":"video/mpeg4"
+   }
 }
