@@ -1,4 +1,6 @@
 {
+  "port":8888,
+  "message":"ok",
   "index":"index.html",
   "root":"www",
    "type":{
@@ -9,5 +11,8 @@
      ".js":"application/x-javascript",
      ".html":"text/html",
      ".mp4":"video/mpeg4"
-   }
+   },
+  "last-modified":false,
+  "cache-control":"max-age=15",
+  "server-info":"nodejs"
 }

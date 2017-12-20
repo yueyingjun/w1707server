@@ -1,0 +1,23 @@
+{
+  "name": "w1707-static-server",
+  "version": "1.0.2",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "bin":{
+    "start2222":"./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yueyingjun/w1707server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yueyingjun/w1707server/issues"
+  },
+  "homepage": "https://github.com/yueyingjun/w1707server#readme"
+}
